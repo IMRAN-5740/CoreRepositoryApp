@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreRepositoryApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221031153114_initialDatabase")]
+    [Migration("20221031182308_initialDatabase")]
     partial class initialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,8 +25,11 @@ namespace CoreRepositoryApp.Migrations
 
             modelBuilder.Entity("CoreRepositoryApp.Models.Product", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
                         .IsRequired()

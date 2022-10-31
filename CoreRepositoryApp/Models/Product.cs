@@ -6,7 +6,7 @@ namespace CoreRepositoryApp.Models
 {
     public class Product
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Required (ErrorMessage ="Please Enter your Product Name")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Please Enter your Product Description")]
