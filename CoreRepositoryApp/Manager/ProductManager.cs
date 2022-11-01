@@ -11,6 +11,13 @@ namespace CoreRepositoryApp.Manager
     {
         public ProductManager(ApplicationDbContext dbContext):base(new ProductRepository(dbContext))
         {
+
+        }
+
+        public Product GetById(int id)
+        { 
+            var product= GetFirstOrDefault(x => x.Id == id);
+            return product;
         }
     }
 }

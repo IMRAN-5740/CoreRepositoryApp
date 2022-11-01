@@ -41,9 +41,62 @@ namespace CoreRepositoryApp.Controllers
                 message = "Product has not Saved";
             }
             _context.SaveChanges();
-                ModelState.Clear();
+            ModelState.Clear();
             ViewBag.Msg=message;
             return View();
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var product=_manager.GetById(id);
+            if (product == null)
+            {
+                return NotFound();
+            }  
+            return View(product);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Product product)
+        {
+           bool isUpdate=_manager.Update(product);
+            if(isUpdate)
+            {
+                return RedirectToAction(nameof(Index));
+
+            }
+           
+            return View(product);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var product = _manager.GetById(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+        public ActionResult Delete(int id )
+        {
+            var product = _manager.GetById(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+        [HttpPost]
+        public ActionResult Delete(Product product)
+        {
+            bool isDeleted = _manager.Delete(product);
+            if(isDeleted)
+            {
+                return RedirectToAction(nameof(Index));
+
+            }
+            return View(product);
         }
     }
 }

@@ -5,5 +5,6 @@ namespace CoreRepositoryApp.Interfaces.Manager
 {
     interface IProductManager :ICommonManager<Product>
     {
+        Product GetById(int id);
     }
 }
