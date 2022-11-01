@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="EF.Core.Repository" Version="1.0.0.2" />
     <PackageReference Include="EntityFrameworkCore.Data.Repository" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
       <PrivateAssets>all</PrivateAssets>

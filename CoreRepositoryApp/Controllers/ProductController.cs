@@ -8,13 +8,13 @@ namespace CoreRepositoryApp.Controllers
 {
     public class ProductController : Controller
     {
-        private ApplicationDbContext _context;
-        private IProductManager _manager;
+      
+        private ProductManager _manager;
 
-        public ProductController(ApplicationDbContext context)
+        public ProductController(ProductManager manager)
         {
-            _context = context;
-            _manager = new ProductManager(_context);
+            
+            _manager = manager;
         }
 
         public IActionResult Index()
@@ -40,7 +40,7 @@ namespace CoreRepositoryApp.Controllers
             {
                 message = "Product has not Saved";
             }
-            _context.SaveChanges();
+           
             ModelState.Clear();
             ViewBag.Msg=message;
             return View();
